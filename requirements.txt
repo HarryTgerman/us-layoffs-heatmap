@@ -1,0 +1,5 @@
+plotly>=5.20
+pandas
+shapely
+geonamescache
+rapidfuzz

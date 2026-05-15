@@ -1,0 +1,1882 @@
+{
+  "Volkswagen Group": {
+    "median_salary": 169720,
+    "mean_salary": 153517,
+    "n_filings": 23,
+    "worksites": [
+      [
+        "BELMONT, CA",
+        0.5217
+      ],
+      [
+        "CHATTANOOGA, TN",
+        0.2609
+      ],
+      [
+        "OXNARD, CA",
+        0.087
+      ],
+      [
+        "FARMINGTON HILLS, MI",
+        0.0435
+      ],
+      [
+        "AUSTIN, TX",
+        0.0435
+      ],
+      [
+        "BOTHELL, WA",
+        0.0435
+      ]
+    ]
+  },
+  "Oracle": {
+    "median_salary": 139464,
+    "mean_salary": 143648,
+    "n_filings": 1088,
+    "worksites": [
+      [
+        "REDWOOD SHORES, CA",
+        0.1429
+      ],
+      [
+        "AUSTIN, TX",
+        0.1176
+      ],
+      [
+        "SEATTLE, WA",
+        0.1027
+      ],
+      [
+        "FRISCO, TX",
+        0.0938
+      ],
+      [
+        "SANTA CLARA, CA",
+        0.0729
+      ],
+      [
+        "PLEASANTON, CA",
+        0.067
+      ],
+      [
+        "MORRISVILLE, NC",
+        0.0446
+      ],
+      [
+        "BRIDGEWATER, NJ",
+        0.0417
+      ],
+      [
+        "DENVER, CO",
+        0.0387
+      ],
+      [
+        "CUMMING, GA",
+        0.0357
+      ],
+      [
+        "KANSAS CITY, MO",
+        0.0327
+      ],
+      [
+        "ORLANDO, FL",
+        0.0283
+      ],
+      [
+        "NEW YORK, NY",
+        0.0283
+      ],
+      [
+        "BURLINGTON, MA",
+        0.0268
+      ],
+      [
+        "WASHINGTON, DC",
+        0.0253
+      ],
+      [
+        "MALVERN, PA",
+        0.0223
+      ],
+      [
+        "CHICAGO, IL",
+        0.0208
+      ],
+      [
+        "IRVINE, CA",
+        0.0208
+      ],
+      [
+        "COLORADO SPRINGS, CO",
+        0.0193
+      ],
+      [
+        "NASHUA, NH",
+        0.0179
+      ]
+    ]
+  },
+  "HSBC": {
+    "median_salary": 153046,
+    "mean_salary": 173516,
+    "n_filings": 69,
+    "worksites": [
+      [
+        "NEW YORK, NY",
+        0.3913
+      ],
+      [
+        "BUFFALO, NY",
+        0.1739
+      ],
+      [
+        "CHICAGO, IL",
+        0.1449
+      ],
+      [
+        "JERSEY CITY, NJ",
+        0.0725
+      ],
+      [
+        "SAN FRANCISCO, CA",
+        0.058
+      ],
+      [
+        "HOUSTON, TX",
+        0.0435
+      ],
+      [
+        "MCLEAN, VA",
+        0.029
+      ],
+      [
+        "DALLAS, TX",
+        0.0145
+      ],
+      [
+        "DEPEW, NY",
+        0.0145
+      ],
+      [
+        "WASHINGTON DC, DC",
+        0.0145
+      ],
+      [
+        "MCKINNEY, TX",
+        0.0145
+      ],
+      [
+        "BEVERLY HILLS, CA",
+        0.0145
+      ],
+      [
+        "MISSOURI CITY, TX",
+        0.0145
+      ]
+    ]
+  },
+  "Citigroup": {
+    "median_salary": 170000,
+    "mean_salary": 170806,
+    "n_filings": 170,
+    "worksites": [
+      [
+        "NEW YORK, NY",
+        0.8529
+      ],
+      [
+        "TAMPA, FL",
+        0.0412
+      ],
+      [
+        "HOUSTON, TX",
+        0.0294
+      ],
+      [
+        "GETZVILLE, NY",
+        0.0235
+      ],
+      [
+        "SAN FRANCISCO, CA",
+        0.0235
+      ],
+      [
+        "CHICAGO, IL",
+        0.0118
+      ]
+    ]
+  },
+  "Nestl\u00e9": {
+    "median_salary": 135000,
+    "mean_salary": 132292,
+    "n_filings": 37,
+    "worksites": [
+      [
+        "ARLINGTON, VA",
+        0.3784
+      ],
+      [
+        "ST. LOUIS, MO",
+        0.1622
+      ],
+      [
+        "BRIDGEWATER, NJ",
+        0.1351
+      ],
+      [
+        "SOLON, OH",
+        0.0811
+      ],
+      [
+        "OVERLAND PARK, KS",
+        0.027
+      ],
+      [
+        "HOLBROOK, NY",
+        0.027
+      ],
+      [
+        "MARYSVILLE, OH",
+        0.027
+      ],
+      [
+        "ELLISVILLE, MO",
+        0.027
+      ],
+      [
+        "CLEVELAND, OH",
+        0.027
+      ],
+      [
+        "JACKSONVILLE, IL",
+        0.027
+      ],
+      [
+        "SAVANNAH, GA",
+        0.027
+      ],
+      [
+        "FREMONT, MI",
+        0.027
+      ],
+      [
+        "ANDERSON, IN",
+        0.027
+      ]
+    ]
+  },
+  "Meta": {
+    "median_salary": 205102,
+    "mean_salary": 205609,
+    "n_filings": 6768,
+    "worksites": [
+      [
+        "MENLO PARK, CA",
+        0.4886
+      ],
+      [
+        "BELLEVUE, WA",
+        0.1409
+      ],
+      [
+        "NEW YORK, NY",
+        0.1135
+      ],
+      [
+        "SUNNYVALE, CA",
+        0.0617
+      ],
+      [
+        "SEATTLE, WA",
+        0.0549
+      ],
+      [
+        "BURLINGAME, CA",
+        0.0424
+      ],
+      [
+        "REDMOND, WA",
+        0.0229
+      ],
+      [
+        "AUSTIN, TX",
+        0.0171
+      ],
+      [
+        "SAN FRANCISCO, CA",
+        0.0164
+      ],
+      [
+        "FREMONT, CA",
+        0.015
+      ]
+    ]
+  },
+  "Amazon": {
+    "median_salary": 153500,
+    "mean_salary": 153132,
+    "n_filings": 7186,
+    "worksites": [
+      [
+        "SEATTLE, WA",
+        0.346
+      ],
+      [
+        "DALLAS, TX",
+        0.0795
+      ],
+      [
+        "HERNDON, VA",
+        0.0788
+      ],
+      [
+        "NEW YORK, NY",
+        0.0675
+      ],
+      [
+        "SANTA CLARA, CA",
+        0.0627
+      ],
+      [
+        "AUSTIN, TX",
+        0.0624
+      ],
+      [
+        "ARLINGTON, VA",
+        0.0499
+      ],
+      [
+        "EAST PALO ALTO, CA",
+        0.0438
+      ],
+      [
+        "BELLEVUE, WA",
+        0.0401
+      ],
+      [
+        "SAN FRANCISCO, CA",
+        0.0276
+      ],
+      [
+        "BOSTON, MA",
+        0.0251
+      ],
+      [
+        "CUPERTINO, CA",
+        0.0201
+      ],
+      [
+        "SUNNYVALE, CA",
+        0.0177
+      ],
+      [
+        "ATLANTA, GA",
+        0.0158
+      ],
+      [
+        "JERSEY CITY, NJ",
+        0.0147
+      ],
+      [
+        "CHICAGO, IL",
+        0.0115
+      ],
+      [
+        "PORTLAND, OR",
+        0.0114
+      ]
+    ]
+  },
+  "Cognizant": {
+    "median_salary": 102294,
+    "mean_salary": 104857,
+    "n_filings": 12042,
+    "worksites": [
+      [
+        "PLANO, TX",
+        0.1602
+      ],
+      [
+        "HARTFORD, CT",
+        0.0932
+      ],
+      [
+        "CHARLOTTE, NC",
+        0.0922
+      ],
+      [
+        "IRVING, TX",
+        0.0842
+      ],
+      [
+        "AUSTIN, TX",
+        0.0566
+      ],
+      [
+        "NEW YORK, NY",
+        0.0486
+      ],
+      [
+        "TEANECK, NJ",
+        0.0438
+      ],
+      [
+        "JERSEY CITY, NJ",
+        0.0423
+      ],
+      [
+        "COLLEGE STATION, TX",
+        0.0406
+      ],
+      [
+        "BRIDGEWATER, NJ",
+        0.0399
+      ],
+      [
+        "PHOENIX, AZ",
+        0.0387
+      ],
+      [
+        "CHICAGO, IL",
+        0.0361
+      ],
+      [
+        "ALPHARETTA, GA",
+        0.0336
+      ],
+      [
+        "ATLANTA, GA",
+        0.0334
+      ],
+      [
+        "RALEIGH, NC",
+        0.0329
+      ],
+      [
+        "CARY, NC",
+        0.0286
+      ],
+      [
+        "EDISON, NJ",
+        0.0261
+      ],
+      [
+        "COLUMBUS, OH",
+        0.0244
+      ],
+      [
+        "MANCHESTER, CT",
+        0.0223
+      ],
+      [
+        "WASHINGTON, DC",
+        0.0223
+      ]
+    ]
+  },
+  "Intel": {
+    "median_salary": 120640,
+    "mean_salary": 126568,
+    "n_filings": 3538,
+    "worksites": [
+      [
+        "HILLSBORO, OR",
+        0.4134
+      ],
+      [
+        "SANTA CLARA, CA",
+        0.1644
+      ],
+      [
+        "CHANDLER, AZ",
+        0.1163
+      ],
+      [
+        "FOLSOM, CA",
+        0.1092
+      ],
+      [
+        "AUSTIN, TX",
+        0.0807
+      ],
+      [
+        "RIO RANCHO, NM",
+        0.0299
+      ],
+      [
+        "SAN JOSE, CA",
+        0.0294
+      ],
+      [
+        "HUDSON, MA",
+        0.0115
+      ]
+    ]
+  },
+  "Spirit Airlines": {
+    "median_salary": 194300,
+    "mean_salary": 184675,
+    "n_filings": 57,
+    "worksites": [
+      [
+        "DANIA BEACH, FL",
+        0.7895
+      ],
+      [
+        "MIRAMAR, FL",
+        0.2105
+      ]
+    ]
+  },
+  "Nokia": {
+    "median_salary": 138775,
+    "mean_salary": 149283,
+    "n_filings": 288,
+    "worksites": [
+      [
+        "SUNNYVALE, CA",
+        0.2975
+      ],
+      [
+        "DALLAS, TX",
+        0.2832
+      ],
+      [
+        "MURRAY HILL, NJ",
+        0.1613
+      ],
+      [
+        "NAPERVILLE, IL",
+        0.0573
+      ],
+      [
+        "BELLEVUE, WA",
+        0.0394
+      ],
+      [
+        "AUSTIN, TX",
+        0.0251
+      ],
+      [
+        "WESTFORD, MA",
+        0.0215
+      ],
+      [
+        "NEW PROVIDENCE, NJ",
+        0.0179
+      ],
+      [
+        "OVERLAND PARK, KS",
+        0.0179
+      ],
+      [
+        "RALEIGH, NC",
+        0.0179
+      ],
+      [
+        "NEW YORK, NY",
+        0.0179
+      ],
+      [
+        "LEANDER, TX",
+        0.0108
+      ]
+    ]
+  },
+  "Dell": {
+    "median_salary": 147704,
+    "mean_salary": 147301,
+    "n_filings": 72,
+    "worksites": [
+      [
+        "ROUND ROCK, TX",
+        0.4627
+      ],
+      [
+        "AUSTIN, TX",
+        0.1343
+      ],
+      [
+        "HOPKINTON, MA",
+        0.1045
+      ],
+      [
+        "NEW YORK, NY",
+        0.0299
+      ],
+      [
+        "WILMINGTON, DE",
+        0.0299
+      ],
+      [
+        "SANTA CLARA, CA",
+        0.0299
+      ],
+      [
+        "SACRAMENTO, CA",
+        0.0149
+      ],
+      [
+        "MIAMI, FL",
+        0.0149
+      ],
+      [
+        "MERIDIAN, ID",
+        0.0149
+      ],
+      [
+        "LAGUNA NIGUEL,, CA",
+        0.0149
+      ],
+      [
+        "NASHVILLE, TN",
+        0.0149
+      ],
+      [
+        "MCDONALD, PA",
+        0.0149
+      ],
+      [
+        "WOODSTOCK, GA",
+        0.0149
+      ],
+      [
+        "MCLEAN, VA",
+        0.0149
+      ],
+      [
+        "HUTTO, TX",
+        0.0149
+      ],
+      [
+        "DALLAS, TX",
+        0.0149
+      ],
+      [
+        "CLEARWATER, FL",
+        0.0149
+      ],
+      [
+        "CELINA, TX",
+        0.0149
+      ],
+      [
+        "EDEN PRAIRIE, MN",
+        0.0149
+      ],
+      [
+        "ENGLEWOOD, CO",
+        0.0149
+      ]
+    ]
+  },
+  "Accenture": {
+    "median_salary": 119496,
+    "mean_salary": 128005,
+    "n_filings": 3489,
+    "worksites": [
+      [
+        "ATLANTA, GA",
+        0.1118
+      ],
+      [
+        "CHICAGO, IL",
+        0.0974
+      ],
+      [
+        "CHARLOTTE, NC",
+        0.0842
+      ],
+      [
+        "HOUSTON, TX",
+        0.0842
+      ],
+      [
+        "HARTFORD, CT",
+        0.0684
+      ],
+      [
+        "NEW YORK, NY",
+        0.0599
+      ],
+      [
+        "PHILADELPHIA, PA",
+        0.0572
+      ],
+      [
+        "COLUMBUS, OH",
+        0.0553
+      ],
+      [
+        "RICHFIELD, MN",
+        0.05
+      ],
+      [
+        "PLANO, TX",
+        0.0461
+      ],
+      [
+        "AUSTIN, TX",
+        0.0414
+      ],
+      [
+        "IRVING, TX",
+        0.0388
+      ],
+      [
+        "SAN DIEGO, CA",
+        0.0283
+      ],
+      [
+        "PITTSBURGH, PA",
+        0.027
+      ],
+      [
+        "BOSTON, MA",
+        0.0263
+      ],
+      [
+        "SAN FRANCISCO, CA",
+        0.0257
+      ],
+      [
+        "PLEASANTON, CA",
+        0.0257
+      ],
+      [
+        "FLORHAM PARK, NJ",
+        0.025
+      ],
+      [
+        "REDMOND, WA",
+        0.0243
+      ],
+      [
+        "SAN JOSE, CA",
+        0.023
+      ]
+    ]
+  },
+  "Kyndryl": {
+    "median_salary": 150000,
+    "mean_salary": 149803,
+    "n_filings": 40,
+    "worksites": [
+      [
+        "NEW YORK, NY",
+        0.1818
+      ],
+      [
+        "DURHAM, NC",
+        0.0909
+      ],
+      [
+        "COLUMBIA, MO",
+        0.0606
+      ],
+      [
+        "MORGAN HILL, CA",
+        0.0606
+      ],
+      [
+        "RALEIGH, NC",
+        0.0606
+      ],
+      [
+        "AUSTIN, TX",
+        0.0606
+      ],
+      [
+        "PFLUGERVILLE, TX",
+        0.0606
+      ],
+      [
+        "RICHMOND, VA",
+        0.0606
+      ],
+      [
+        "OAKDALE, CA",
+        0.0303
+      ],
+      [
+        "HOUSTON, TX",
+        0.0303
+      ],
+      [
+        "ROCHESTER, MN",
+        0.0303
+      ],
+      [
+        "CARY, NC",
+        0.0303
+      ],
+      [
+        "LEANDER, TX",
+        0.0303
+      ],
+      [
+        "FARMERS BRANCH, TX",
+        0.0303
+      ],
+      [
+        "WOODSTOCK, GA",
+        0.0303
+      ],
+      [
+        "TROY, MI",
+        0.0303
+      ],
+      [
+        "ACTON, MA",
+        0.0303
+      ],
+      [
+        "SEATTLE, WA",
+        0.0303
+      ],
+      [
+        "ALPHARETTA, GA",
+        0.0303
+      ],
+      [
+        "EAST PEORIA, IL",
+        0.0303
+      ]
+    ]
+  },
+  "Microsoft": {
+    "median_salary": 163862,
+    "mean_salary": 166159,
+    "n_filings": 10624,
+    "worksites": [
+      [
+        "REDMOND, WA",
+        0.7086
+      ],
+      [
+        "MOUNTAIN VIEW, CA",
+        0.0773
+      ],
+      [
+        "ATLANTA, GA",
+        0.0581
+      ],
+      [
+        "AUSTIN, TX",
+        0.0269
+      ],
+      [
+        "IRVING, TX",
+        0.0202
+      ],
+      [
+        "NEW YORK, NY",
+        0.0172
+      ],
+      [
+        "CHARLOTTE, NC",
+        0.0138
+      ]
+    ]
+  },
+  "Chevron": {
+    "median_salary": 184000,
+    "mean_salary": 189084,
+    "n_filings": 31,
+    "worksites": [
+      [
+        "HOUSTON, TX",
+        0.6129
+      ],
+      [
+        "MIDLAND, TX",
+        0.2258
+      ],
+      [
+        "GEISMAR, LA",
+        0.0645
+      ],
+      [
+        "EL SEGUNDO BLVD, CA",
+        0.0323
+      ],
+      [
+        "EL SEGUNDO, CA",
+        0.0323
+      ],
+      [
+        "SWEENY, TX",
+        0.0323
+      ]
+    ]
+  },
+  "Commerzbank": {
+    "median_salary": 325000,
+    "mean_salary": 277500,
+    "n_filings": 2,
+    "worksites": [
+      [
+        "NEW YORK, NY",
+        1.0
+      ]
+    ]
+  },
+  "Heineken": {
+    "median_salary": 98700,
+    "mean_salary": 98700,
+    "n_filings": 1,
+    "worksites": [
+      [
+        "WHITE PLAINS, NY",
+        1.0
+      ]
+    ]
+  },
+  "Telefonica": {
+    "median_salary": 125174,
+    "mean_salary": 125174,
+    "n_filings": 1,
+    "worksites": [
+      [
+        "DORAL, FL",
+        1.0
+      ]
+    ]
+  },
+  "Tyson Foods": {
+    "median_salary": 100000,
+    "mean_salary": 107481,
+    "n_filings": 28,
+    "worksites": [
+      [
+        "SPRINGDALE, AR",
+        0.8929
+      ],
+      [
+        "ST. JOSEPH, MO",
+        0.0357
+      ],
+      [
+        "OMAHA, NE",
+        0.0357
+      ],
+      [
+        "SEATTLE, WA",
+        0.0357
+      ]
+    ]
+  },
+  "PayPal": {
+    "median_salary": 165000,
+    "mean_salary": 169358,
+    "n_filings": 979,
+    "worksites": [
+      [
+        "SAN JOSE, CA",
+        0.5909
+      ],
+      [
+        "AUSTIN, TX",
+        0.1806
+      ],
+      [
+        "NEW YORK, NY",
+        0.0762
+      ],
+      [
+        "SCOTTSDALE, AZ",
+        0.0511
+      ],
+      [
+        "CHICAGO, IL",
+        0.0337
+      ],
+      [
+        "LA VISTA, NE",
+        0.0141
+      ]
+    ]
+  },
+  "Takeda": {
+    "median_salary": 160060,
+    "mean_salary": 160444,
+    "n_filings": 221,
+    "worksites": [
+      [
+        "CAMBRIDGE, MA",
+        0.6101
+      ],
+      [
+        "LEXINGTON, MA",
+        0.211
+      ],
+      [
+        "BANNOCKBURN, IL",
+        0.0413
+      ],
+      [
+        "EXTON, PA",
+        0.0275
+      ],
+      [
+        "SAN DIEGO, CA",
+        0.0183
+      ],
+      [
+        "SOCIAL CIRCLE, GA",
+        0.0138
+      ]
+    ]
+  },
+  "Cisco": {
+    "median_salary": 134200,
+    "mean_salary": 139979,
+    "n_filings": 1331,
+    "worksites": [
+      [
+        "SAN JOSE, CA",
+        0.3093
+      ],
+      [
+        "SAN FRANCISCO, CA",
+        0.0944
+      ],
+      [
+        "MORRISVILLE, NC",
+        0.0898
+      ],
+      [
+        "RICHARDSON, TX",
+        0.0833
+      ],
+      [
+        "RESEARCH TRIANGLE PARK, NC",
+        0.0796
+      ],
+      [
+        "AUSTIN, TX",
+        0.063
+      ],
+      [
+        "MILPITAS, CA",
+        0.0481
+      ],
+      [
+        "SEATTLE, WA",
+        0.0343
+      ],
+      [
+        "TRACY, CA",
+        0.0259
+      ],
+      [
+        "NEW YORK, NY",
+        0.0231
+      ],
+      [
+        "BOXBOROUGH, MA",
+        0.0222
+      ],
+      [
+        "CHICAGO, IL",
+        0.0194
+      ],
+      [
+        "ISELIN, NJ",
+        0.0148
+      ],
+      [
+        "MOUNTAIN HOUSE, CA",
+        0.0148
+      ],
+      [
+        "LATHROP, CA",
+        0.0139
+      ],
+      [
+        "DENVER, CO",
+        0.0139
+      ],
+      [
+        "ATLANTA, GA",
+        0.013
+      ],
+      [
+        "ALPHARETTA, GA",
+        0.013
+      ],
+      [
+        "DORAL, FL",
+        0.012
+      ],
+      [
+        "FULTON, MD",
+        0.012
+      ]
+    ]
+  },
+  "Block": {
+    "median_salary": 195264,
+    "mean_salary": 199497,
+    "n_filings": 283,
+    "worksites": [
+      [
+        "OAKLAND, CA",
+        0.3178
+      ],
+      [
+        "SEATTLE, WA",
+        0.1737
+      ],
+      [
+        "NEW YORK, NY",
+        0.1525
+      ],
+      [
+        "SAN FRANCISCO, CA",
+        0.0847
+      ],
+      [
+        "AUSTIN, TX",
+        0.0424
+      ],
+      [
+        "SAN JOSE, CA",
+        0.0297
+      ],
+      [
+        "BOTHELL, WA",
+        0.0212
+      ],
+      [
+        "LEANDER, TX",
+        0.0212
+      ],
+      [
+        "LOS ANGELES, CA",
+        0.0212
+      ],
+      [
+        "SAN DIEGO, CA",
+        0.0169
+      ],
+      [
+        "SUNNYVALE, CA",
+        0.0169
+      ],
+      [
+        "MOUNTAIN VIEW, CA",
+        0.0169
+      ],
+      [
+        "BROOKLYN, NY",
+        0.0127
+      ],
+      [
+        "ATLANTA, GA",
+        0.0127
+      ],
+      [
+        "ROUND ROCK, TX",
+        0.0127
+      ],
+      [
+        "MIRAMAR, FL",
+        0.0127
+      ]
+    ]
+  },
+  "Republic National Distributing": {
+    "median_salary": 137000,
+    "mean_salary": 103500,
+    "n_filings": 2,
+    "worksites": [
+      [
+        "ATLANTA, GA",
+        1.0
+      ]
+    ]
+  },
+  "Morgan Stanley": {
+    "median_salary": 160000,
+    "mean_salary": 164735,
+    "n_filings": 1008,
+    "worksites": [
+      [
+        "NEW YORK, NY",
+        0.6653
+      ],
+      [
+        "ALPHARETTA, GA",
+        0.1778
+      ],
+      [
+        "BALTIMORE, MD",
+        0.041
+      ],
+      [
+        "MENLO PARK, CA",
+        0.032
+      ],
+      [
+        "JERSEY CITY, NJ",
+        0.024
+      ]
+    ]
+  },
+  "Porsche": {
+    "median_salary": 104645,
+    "mean_salary": 108354,
+    "n_filings": 3,
+    "worksites": [
+      [
+        "CARSON, CA",
+        0.6667
+      ],
+      [
+        "ATLANTA, GA",
+        0.3333
+      ]
+    ]
+  },
+  "Electrolux": {
+    "median_salary": 117096,
+    "mean_salary": 119116,
+    "n_filings": 23,
+    "worksites": [
+      [
+        "CHARLOTTE, NC",
+        0.5217
+      ],
+      [
+        "SPRINGFIELD, TN",
+        0.2174
+      ],
+      [
+        "ANDERSON, SC",
+        0.2174
+      ],
+      [
+        "VICKSBURG, MS",
+        0.0435
+      ]
+    ]
+  },
+  "WiseTech Global": {
+    "median_salary": 153000,
+    "mean_salary": 154444,
+    "n_filings": 11,
+    "worksites": [
+      [
+        "PLEASANTON, CA",
+        0.6364
+      ],
+      [
+        "CHAPEL HILL, NC",
+        0.2727
+      ],
+      [
+        "CHARLOTTE, NC",
+        0.0909
+      ]
+    ]
+  },
+  "BioNTech": {
+    "median_salary": 130000,
+    "mean_salary": 134472,
+    "n_filings": 18,
+    "worksites": [
+      [
+        "CAMBRIDGE, MA",
+        0.7222
+      ],
+      [
+        "GAITHERSBURG, MD",
+        0.1111
+      ],
+      [
+        "MANTECA, CA",
+        0.0556
+      ],
+      [
+        "DANBURY, CT",
+        0.0556
+      ],
+      [
+        "LAWRENCE TOWNSHIP, NJ",
+        0.0556
+      ]
+    ]
+  },
+  "ASML": {
+    "median_salary": 125778,
+    "mean_salary": 129340,
+    "n_filings": 433,
+    "worksites": [
+      [
+        "WILTON, CT",
+        0.4688
+      ],
+      [
+        "SAN JOSE, CA",
+        0.2517
+      ],
+      [
+        "SAN DIEGO, CA",
+        0.1524
+      ],
+      [
+        "HILLSBORO, OR",
+        0.0416
+      ],
+      [
+        "PHOENIX, AZ",
+        0.0323
+      ],
+      [
+        "AUSTIN, TX",
+        0.0208
+      ],
+      [
+        "CHANDLER, AZ",
+        0.0185
+      ]
+    ]
+  },
+  "Atlassian": {
+    "median_salary": 184662,
+    "mean_salary": 182565,
+    "n_filings": 217,
+    "worksites": [
+      [
+        "MOUNTAIN VIEW, CA",
+        0.4865
+      ],
+      [
+        "SAN FRANCISCO, CA",
+        0.1351
+      ],
+      [
+        "AUSTIN, TX",
+        0.0757
+      ],
+      [
+        "NEW YORK, NY",
+        0.0432
+      ],
+      [
+        "BELLEVUE, WA",
+        0.0432
+      ],
+      [
+        "SEATTLE, WA",
+        0.0378
+      ],
+      [
+        "KIRKLAND, WA",
+        0.0216
+      ],
+      [
+        "BOTHELL, WA",
+        0.0216
+      ],
+      [
+        "REDMOND, WA",
+        0.0162
+      ],
+      [
+        "MCKINNEY, TX",
+        0.0162
+      ],
+      [
+        "SAMMAMISH, WA",
+        0.0162
+      ],
+      [
+        "ATLANTA, GA",
+        0.0108
+      ],
+      [
+        "SAN DIEGO, CA",
+        0.0108
+      ],
+      [
+        "ISSAQUAH, WA",
+        0.0108
+      ],
+      [
+        "MERCER ISLAND, WA",
+        0.0108
+      ],
+      [
+        "CLARKSBURG, MD",
+        0.0108
+      ],
+      [
+        "OKLAHOMA CITY, OK",
+        0.0108
+      ],
+      [
+        "SAN JOSE, CA",
+        0.0108
+      ]
+    ]
+  },
+  "Ericsson": {
+    "median_salary": 128960,
+    "mean_salary": 127632,
+    "n_filings": 167,
+    "worksites": [
+      [
+        "PLANO, TX",
+        0.3851
+      ],
+      [
+        "AUSTIN, TX",
+        0.2112
+      ],
+      [
+        "BELLEVUE, WA",
+        0.1118
+      ],
+      [
+        "LEWISVILLE, TX",
+        0.0932
+      ],
+      [
+        "SANTA CLARA, CA",
+        0.0435
+      ],
+      [
+        "CUMMING, GA",
+        0.0311
+      ],
+      [
+        "IRVINE, CA",
+        0.0248
+      ],
+      [
+        "MORRISTOWN, NJ",
+        0.0186
+      ],
+      [
+        "ALPHARETTA, GA",
+        0.0124
+      ]
+    ]
+  },
+  "Goldman Sachs": {
+    "median_salary": 137000,
+    "mean_salary": 143339,
+    "n_filings": 1987,
+    "worksites": [
+      [
+        "NEW YORK, NY",
+        0.4205
+      ],
+      [
+        "DALLAS, TX",
+        0.2539
+      ],
+      [
+        "SALT LAKE CITY, UT",
+        0.1828
+      ],
+      [
+        "RICHARDSON, TX",
+        0.0477
+      ],
+      [
+        "JERSEY CITY, NJ",
+        0.0335
+      ]
+    ]
+  },
+  "Nike": {
+    "median_salary": 163750,
+    "mean_salary": 171140,
+    "n_filings": 388,
+    "worksites": [
+      [
+        "BEAVERTON, OR",
+        0.6547
+      ],
+      [
+        "PORTLAND, OR",
+        0.1298
+      ],
+      [
+        "HILLSBORO, OR",
+        0.1022
+      ],
+      [
+        "NEW YORK, NY",
+        0.0166
+      ],
+      [
+        "MEMPHIS, TN",
+        0.0138
+      ],
+      [
+        "NORTH PLAINS, OR",
+        0.011
+      ]
+    ]
+  },
+  "Mastercard": {
+    "median_salary": 122699,
+    "mean_salary": 128626,
+    "n_filings": 529,
+    "worksites": [
+      [
+        "O&#39;FALLON, MO",
+        0.3354
+      ],
+      [
+        "O\u2019FALLON, MO",
+        0.2138
+      ],
+      [
+        "NEW YORK, NY",
+        0.1447
+      ],
+      [
+        "PURCHASE, NY",
+        0.0776
+      ],
+      [
+        "OFALLON, MO",
+        0.0713
+      ],
+      [
+        "ARLINGTON, VA",
+        0.0524
+      ],
+      [
+        "ATLANTA, GA",
+        0.0168
+      ],
+      [
+        "SAN FRANCISCO, CA",
+        0.0147
+      ],
+      [
+        "MIAMI, FL",
+        0.0126
+      ]
+    ]
+  },
+  "Ultium Cells": {
+    "median_salary": 69971,
+    "mean_salary": 70169,
+    "n_filings": 9,
+    "worksites": [
+      [
+        "WARREN, OH",
+        0.5556
+      ],
+      [
+        "SPRING HILL, TN",
+        0.3333
+      ],
+      [
+        "LANSING, MI",
+        0.1111
+      ]
+    ]
+  },
+  "General Motors": {
+    "median_salary": 125000,
+    "mean_salary": 130286,
+    "n_filings": 868,
+    "worksites": [
+      [
+        "WARREN, MI",
+        0.5533
+      ],
+      [
+        "MILFORD, MI",
+        0.2119
+      ],
+      [
+        "ARLINGTON, TX",
+        0.0412
+      ],
+      [
+        "IRVING, TX",
+        0.0303
+      ],
+      [
+        "FORT WORTH, TX",
+        0.0266
+      ],
+      [
+        "PONTIAC, MI",
+        0.0218
+      ],
+      [
+        "AUSTIN, TX",
+        0.0206
+      ],
+      [
+        "MOUNTAIN VIEW, CA",
+        0.0157
+      ],
+      [
+        "SUNNYVALE, CA",
+        0.0145
+      ],
+      [
+        "DETROIT, MI",
+        0.0133
+      ],
+      [
+        "ROSWELL, GA",
+        0.0121
+      ],
+      [
+        "CONCORD, NC",
+        0.0109
+      ]
+    ]
+  },
+  "Cloudflare": {
+    "median_salary": 156560,
+    "mean_salary": 168834,
+    "n_filings": 128,
+    "worksites": [
+      [
+        "SAN FRANCISCO, CA",
+        0.3932
+      ],
+      [
+        "AUSTIN, TX",
+        0.3419
+      ],
+      [
+        "NEW YORK, NY",
+        0.0427
+      ],
+      [
+        "NEW YORK CITY, NY",
+        0.0427
+      ],
+      [
+        "MIAMI, FL",
+        0.0256
+      ],
+      [
+        "BELLEVUE, WA",
+        0.0256
+      ],
+      [
+        "ATLANTA, GA",
+        0.0171
+      ]
+    ]
+  },
+  "Capital One": {
+    "median_salary": 144543,
+    "mean_salary": 135122,
+    "n_filings": 810,
+    "worksites": [
+      [
+        "MCLEAN, VA",
+        0.4815
+      ],
+      [
+        "RICHMOND, VA",
+        0.1741
+      ],
+      [
+        "PLANO, TX",
+        0.1444
+      ],
+      [
+        "NEW YORK, NY",
+        0.1062
+      ],
+      [
+        "CHICAGO, IL",
+        0.0432
+      ],
+      [
+        "WILMINGTON, DE",
+        0.021
+      ],
+      [
+        "SAN FRANCISCO, CA",
+        0.0185
+      ]
+    ]
+  },
+  "Macy's": {
+    "median_salary": 160600,
+    "mean_salary": 160600,
+    "n_filings": 1,
+    "worksites": [
+      [
+        "NEW YORK, NY",
+        1.0
+      ]
+    ]
+  },
+  "Snap": {
+    "median_salary": 163862,
+    "mean_salary": 161940,
+    "n_filings": 334,
+    "worksites": [
+      [
+        "PALO ALTO, CA",
+        0.2904
+      ],
+      [
+        "SANTA MONICA, CA",
+        0.2365
+      ],
+      [
+        "SEATTLE, WA",
+        0.1557
+      ],
+      [
+        "NEW YORK, NY",
+        0.1078
+      ],
+      [
+        "BELLEVUE, WA",
+        0.0958
+      ],
+      [
+        "SAN FRANCISCO, CA",
+        0.0539
+      ],
+      [
+        "SAN DIEGO, CA",
+        0.012
+      ]
+    ]
+  },
+  "Disney": {
+    "median_salary": 174880,
+    "mean_salary": 177709,
+    "n_filings": 42,
+    "worksites": [
+      [
+        "SEATTLE, WA",
+        0.1905
+      ],
+      [
+        "SAN FRANCISCO, CA",
+        0.1667
+      ],
+      [
+        "SANTA MONICA, CA",
+        0.119
+      ],
+      [
+        "NEW YORK, NY",
+        0.0952
+      ],
+      [
+        "ORLANDO, FL",
+        0.0952
+      ],
+      [
+        "LAKE BUENA VISTA, FL",
+        0.0952
+      ],
+      [
+        "BRISTOL, CT",
+        0.0714
+      ],
+      [
+        "BURBANK, CA",
+        0.0476
+      ],
+      [
+        "GLENDALE, CA",
+        0.0238
+      ],
+      [
+        "LOXAHATCHEE, FL",
+        0.0238
+      ],
+      [
+        "BAY LAKE, FL",
+        0.0238
+      ],
+      [
+        "HARRISBURG, NC",
+        0.0238
+      ],
+      [
+        "EDISON, NJ",
+        0.0238
+      ]
+    ]
+  },
+  "Epic Games": {
+    "median_salary": 178600,
+    "mean_salary": 166438,
+    "n_filings": 40,
+    "worksites": [
+      [
+        "CARY, NC",
+        0.375
+      ],
+      [
+        "BELLEVUE, WA",
+        0.2
+      ],
+      [
+        "NEW YORK, NY",
+        0.1
+      ],
+      [
+        "SAN DIEGO, CA",
+        0.05
+      ],
+      [
+        "BOSTON, MA",
+        0.05
+      ],
+      [
+        "TUSTIN, CA",
+        0.025
+      ],
+      [
+        "IRVINE, CA",
+        0.025
+      ],
+      [
+        "REDWOOD CITY, CA",
+        0.025
+      ],
+      [
+        "MONTGOMERY VILLAGE, MD",
+        0.025
+      ],
+      [
+        "MURRAY, UT",
+        0.025
+      ],
+      [
+        "WOODLAND HILLS, CA",
+        0.025
+      ],
+      [
+        "PITTSBURGH, PA",
+        0.025
+      ],
+      [
+        "SAVANNAH, GA",
+        0.025
+      ],
+      [
+        "CULVER CITY, CA",
+        0.025
+      ]
+    ]
+  }
+}

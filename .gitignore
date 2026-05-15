@@ -1,0 +1,22 @@
+# Raw data archives — re-downloadable via fetch_data.sh
+qcew_2024.zip
+cagdp1.zip
+warn_pre2026.csv
+
+# H1B raw HTML cache (43 MB; the parsed h1b_overrides.json is kept)
+h1b_cache/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
