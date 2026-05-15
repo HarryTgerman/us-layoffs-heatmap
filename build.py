@@ -660,7 +660,7 @@ fig.add_trace(go.Choroplethmapbox(
 # Trace 1: state choropleth (only states WITH data)
 fig.add_trace(go.Choroplethmapbox(
     geojson=states_geo, locations=state_geo_ids,
-    z=payload_2026["state_raw"][m0],
+    z=[v if v and v > 0 else None for v in payload_2026["state_raw"][m0]],
     customdata=[[g] + [payload_2026["state_raw"][m][i] for m in metrics] + [payload_2026["panel_pct_state"].get(g, 0)] for i, g in enumerate(state_geo_ids)],
     text=[state_name_by_fips.get(g, "") for g in state_geo_ids],
     colorscale="YlOrRd", zmin=zmin, zmax=zmax,
@@ -710,7 +710,12 @@ html = f"""<!DOCTYPE html>
 <style>
 *{{box-sizing:border-box}}html,body{{margin:0;padding:0;height:100%;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#fafafa}}
 body{{display:flex;flex-direction:column;height:100vh;overflow:hidden}}
-header{{background:white;border-bottom:1px solid #e0e0e0;padding:10px 20px 8px;flex-shrink:0}}
+header{{background:white;border-bottom:1px solid #e0e0e0;padding:10px 20px 8px;flex-shrink:0;position:relative}}
+.attrib{{position:absolute;top:10px;right:20px;display:flex;gap:10px;align-items:center;font-size:11px;color:#999}}
+.attrib a{{color:#888;text-decoration:none;display:inline-flex;align-items:center;gap:4px;padding:2px 4px;border-radius:3px;transition:all 0.15s}}
+.attrib a:hover{{color:#1a4480;background:#f3f6fb}}
+.attrib svg{{width:13px;height:13px;fill:currentColor}}
+.attrib .sep{{color:#ddd}}
 h1{{margin:0 0 4px;font-size:17px;font-weight:600;color:#222}}
 .subtitle{{font-size:11px;color:#666;margin-bottom:8px}}
 .totals{{display:flex;gap:18px;flex-wrap:wrap;font-size:12px;color:#444;margin-bottom:8px}}
@@ -742,16 +747,26 @@ main{{flex:1;display:flex;min-height:0}}
 #panel .pct-bar > span{{display:block;height:100%;background:#28a745}}
 #panel .totals2{{background:#f8f8f8;border-radius:4px;padding:6px 10px;font-size:11px;margin-bottom:10px;line-height:1.5}}
 #panel table{{width:100%;border-collapse:collapse;font-size:11px}}
-#panel th{{text-align:left;padding:4px 6px;background:#f0f0f0;cursor:pointer;user-select:none;border-bottom:1px solid #ddd;position:sticky;top:0}}
-#panel th:hover{{background:#e0e0e0}}#panel th.right{{text-align:right}}
+#panel th{{text-align:left;padding:6px 6px;background:#fafafa;color:#444;font-weight:600;cursor:pointer;user-select:none;border-bottom:2px solid #c8c8c8;position:sticky;top:0;z-index:5;box-shadow:0 2px 4px -2px rgba(0,0,0,0.12)}}
+#panel th:hover{{background:#eee;color:#1a4480}}#panel th.right{{text-align:right}}
 #panel td{{padding:4px 6px;border-bottom:1px solid #f0f0f0}}#panel td.right{{text-align:right;font-variant-numeric:tabular-nums}}
 #panel td.co{{font-weight:500;color:#222}}
 #panel .src-m{{display:inline-block;width:7px;height:7px;border-radius:50%;background:#28a745;margin-right:5px;vertical-align:middle}}
 #panel .src-e{{display:inline-block;width:7px;height:7px;border-radius:50%;background:#aaa;margin-right:5px;vertical-align:middle}}
-#panel-close{{position:absolute;top:8px;right:8px;background:none;border:none;font-size:18px;cursor:pointer;color:#888}}
+.panel-header{{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:6px}}
+.panel-header h2{{margin:0;flex:1;min-width:0}}
+#panel-close{{background:#f0f0f0;border:1px solid #ddd;border-radius:4px;width:24px;height:24px;line-height:20px;text-align:center;padding:0;font-size:16px;cursor:pointer;color:#666;flex-shrink:0}}
+#panel-close:hover{{background:#e0e0e0;color:#222}}
 </style></head>
 <body>
 <header>
+  <div class="attrib">
+    <a href="https://deflation.ai" target="_blank" rel="noopener" title="deflation.ai">deflation.ai</a>
+    <span class="sep">·</span>
+    <a href="https://x.com/TrippelHarry" target="_blank" rel="noopener" title="@TrippelHarry on X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>@TrippelHarry</a>
+    <span class="sep">·</span>
+    <a href="https://github.com/HarryTgerman/us-layoffs-heatmap" target="_blank" rel="noopener" title="source on GitHub"><svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>repo</a>
+  </div>
   <h1>US Layoffs Heatmap</h1>
   <div class="subtitle">Sources: layoffhedge.com · WARN filings · BLS QCEW · BEA county GDP · DOL H-1B disclosures</div>
   <div class="totals" id="totals-row"></div>
@@ -874,6 +889,7 @@ function enterStateView(){{
   viewLevel='state'; focusedState=null;
   Plotly.restyle(gd, {{visible:true}}, [0]);
   Plotly.restyle(gd, {{visible:true, showscale:true}}, [1]);
+  applyStateLayer();
   applyCountyLayers(null);
   Plotly.restyle(gd, {{visible:false}}, [2]);
   Plotly.restyle(gd, {{visible:false, showscale:false}}, [3]);
@@ -968,8 +984,10 @@ function renderPanel(d, isCounty){{
     ? ('<div style="font-size:11px;color:#666;margin-bottom:6px">QCEW employment: '+fmtNum(d.qcew_emp||0)+' private workers in major sectors · Tax rate: '+(d.tax_rate||0)+'%</div>')
     : ('<div style="font-size:11px;color:#666;margin-bottom:6px">State effective tax rate: '+(d.tax_rate||0).toFixed(1)+'%</div>');
   document.getElementById('panel-inner').innerHTML =
-    '<button id="panel-close" onclick="closePanel()">×</button>'+
-    '<h2>'+d.name+' <span style="font-weight:400;font-size:12px;color:#888">· '+year+'</span></h2>'+
+    '<div class="panel-header">'+
+      '<h2>'+d.name+' <span style="font-weight:400;font-size:12px;color:#888">· '+year+'</span></h2>'+
+      '<button id="panel-close" onclick="closePanel()" title="close">×</button>'+
+    '</div>'+
     '<div class="meta">'+d.measured_pct+'% WARN-measured'+
     '<span class="pct-bar"><span style="width:'+d.measured_pct+'%"></span></span></div>'+
     ctx +
