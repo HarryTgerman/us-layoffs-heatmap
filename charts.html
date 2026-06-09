@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>US Layoffs — Charts (2025 &amp; 2026)</title>
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#fafafa;color:#222}
+header{background:white;border-bottom:1px solid #e0e0e0;padding:10px 20px 8px;position:relative}
+.attrib{position:absolute;top:10px;right:20px;display:flex;gap:10px;align-items:center;font-size:11px;color:#999}
+.attrib a{color:#888;text-decoration:none;display:inline-flex;align-items:center;gap:4px;padding:2px 4px;border-radius:3px;transition:all 0.15s}
+.attrib a:hover{color:#1a4480;background:#f3f6fb}
+.attrib svg{width:13px;height:13px;fill:currentColor}
+.attrib .sep{color:#ddd}
+h1{margin:0 0 4px;font-size:17px;font-weight:600;color:#222}
+.subtitle{font-size:11px;color:#666;margin-bottom:8px}
+.controls{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+button.metric,button.year{background:#f0f0f0;border:1px solid #d8d8d8;color:#333;padding:5px 12px;font-size:12px;border-radius:4px;cursor:pointer}
+button.metric:hover,button.year:hover{background:#e8e8e8}
+button.metric.active{background:#b00;color:white;border-color:#b00}
+button.year{background:#1a4480;color:white;border-color:#1a4480}
+button.year:hover{background:#0d2c5a}
+button.year.active{background:#0d2c5a;border-color:#0d2c5a}
+.divider{width:1px;height:20px;background:#ccc;margin:0 8px}
+.wrap{max-width:1000px;margin:0 auto;padding:18px 20px 60px}
+.kpis{display:flex;gap:12px;flex-wrap:wrap;margin:6px 0}
+.kpi{background:white;border:1px solid #e6e6e6;border-radius:8px;padding:11px 15px;flex:1;min-width:120px}
+.kpi .v{font-size:21px;font-weight:700;color:#b00;font-variant-numeric:tabular-nums}
+.kpi .l{font-size:11px;color:#777;margin-top:2px}
+section{background:white;border:1px solid #e8e8e8;border-radius:10px;padding:16px 18px;margin-top:18px}
+section h2{margin:0 0 2px;font-size:15px;color:#222}
+.hint{font-size:11px;color:#888;margin-bottom:12px}
+.legend{float:right;font-size:11px;color:#888;font-weight:400}
+.dot{display:inline-block;width:7px;height:7px;border-radius:50%;margin:0 4px 0 10px;vertical-align:middle}
+.dot.m{background:#28a745}.dot.e{background:#bbb}
+.bar-row{display:grid;grid-template-columns:215px 1fr 108px;align-items:center;gap:10px;margin-bottom:5px;font-size:12px}
+.bar-label{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#333}
+.bar-label .rank{display:inline-block;width:20px;color:#bbb;text-align:right;margin-right:7px;font-variant-numeric:tabular-nums}
+.src-m,.src-e{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:6px;vertical-align:middle;flex-shrink:0}
+.src-m{background:#28a745}.src-e{background:#bbb}
+.bar-track{background:#f1f1f1;border-radius:4px;height:17px;overflow:hidden}
+.bar-fill{height:100%;border-radius:4px;background:linear-gradient(90deg,#ffb24d,#b00)}
+.bar-fill.g{background:#cfcfcf}
+.bar-val{text-align:right;font-variant-numeric:tabular-nums;color:#444}
+.cmp-row{display:grid;grid-template-columns:110px 1fr 64px;align-items:center;gap:14px;margin-bottom:11px;font-size:12px}
+.cmp-lbl{color:#333;font-weight:600}
+.cmp-line{display:grid;grid-template-columns:34px 1fr 92px;align-items:center;gap:8px;margin:2px 0}
+.cmp-line .yr{font-size:10px;color:#999}
+.cmp-v{text-align:right;font-variant-numeric:tabular-nums;color:#444}
+.cmp-delta{text-align:right;font-weight:600;font-variant-numeric:tabular-nums}
+.cmp-delta.up{color:#b00}.cmp-delta.down{color:#28a745}
+@media(max-width:640px){.bar-row{grid-template-columns:128px 1fr 76px}}
+</style></head>
+<body>
+<header>
+  <div class="attrib">
+    <a href="index.html" title="Back to the map"><svg viewBox="0 0 24 24"><path d="M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5zM15 19l-6-2.11V5l6 2.11V19z"/></svg>Map</a>
+    <span class="sep">&middot;</span>
+    <a href="https://deflation.ai" target="_blank" rel="noopener" title="deflation.ai">deflation.ai</a>
+    <span class="sep">&middot;</span>
+    <a href="https://x.com/TrippelHarry" target="_blank" rel="noopener" title="@TrippelHarry on X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>@TrippelHarry</a>
+    <span class="sep">&middot;</span>
+    <a href="https://github.com/HarryTgerman/us-layoffs-heatmap" target="_blank" rel="noopener" title="source on GitHub"><svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>repo</a>
+  </div>
+  <h1>US Layoffs &mdash; Charts</h1>
+  <div class="subtitle">Company &amp; state rankings &middot; <a href="index.html" style="color:#1a4480;text-decoration:none">open the interactive map &rarr;</a></div>
+  <div class="controls">
+    <button class="year active" data-year="2026">2026</button>
+    <button class="year" data-year="2025">2025</button>
+    <span class="divider"></span>
+    <button class="metric" data-metric="people">People</button>
+    <button class="metric" data-metric="wages">Wages</button>
+    <button class="metric" data-metric="tax">Tax</button>
+    <button class="metric" data-metric="equity">Equity</button>
+    <button class="metric active" data-metric="total">Total</button>
+  </div>
+</header>
+<div class="wrap">
+  <div class="kpis" id="kpis"></div>
+  <section>
+    <h2>Top companies <span class="legend"><span class="dot m"></span>WARN-measured<span class="dot e"></span>estimated</span></h2>
+    <div class="hint" id="co-hint"></div>
+    <div id="co-chart"></div>
+  </section>
+  <section>
+    <h2>Top states</h2>
+    <div class="hint" id="st-hint"></div>
+    <div id="st-chart"></div>
+  </section>
+  <section>
+    <h2>2025 vs 2026</h2>
+    <div class="hint">National totals for both years. &Delta; is 2026 vs 2025 &mdash; red = higher in 2026, green = lower.</div>
+    <div id="cmp-chart"></div>
+  </section>
+</div>
+<script>
+const CHART = {"metrics": ["people", "wages", "tax", "equity", "total"], "metric_labels": {"people": "People", "wages": "Wages", "tax": "Tax Lost", "equity": "Equity", "total": "Total Impact"}, "years": {"2025": {"grand_totals": {"people": 341247, "wages": 40348067639, "tax": 12467363024, "equity": 2047482000, "total": 54862912664, "gdp_share": 288.667}, "measured_pct": 100, "companies": [{"co": "Tend Exchange Subsidiary LLC and Delaware Tender Staffing LLC", "people": 8090, "wages": 1082943580, "tax": 384444971, "equity": 48540000, "total": 1515928551, "source": "measured"}, {"co": "United States Cellular Corporation", "people": 6455, "wages": 638931324, "tax": 189958298, "equity": 38730000, "total": 867619622, "source": "measured"}, {"co": "Microsoft", "people": 3202, "wages": 554935418, "tax": 138733854, "equity": 19212000, "total": 712881272, "source": "measured"}, {"co": "Intel Corporation", "people": 4198, "wages": 469398262, "tax": 160162135, "equity": 25188000, "total": 654748397, "source": "measured"}, {"co": "Department of Health and Human Services (HHS)", "people": 2695, "wages": 348074065, "tax": 116952886, "equity": 16170000, "total": 481196951, "source": "measured"}, {"co": "Crozer Health", "people": 2651, "wages": 331896122, "tax": 93262810, "equity": 15906000, "total": 441064932, "source": "measured"}, {"co": "Arizona Autism", "people": 2792, "wages": 302733768, "tax": 82343585, "equity": 16752000, "total": 401829353, "source": "measured"}, {"co": "Starbucks", "people": 1594, "wages": 276254546, "tax": 69063636, "equity": 9564000, "total": 354882182, "source": "measured"}, {"co": "Walmart", "people": 1564, "wages": 245305057, "tax": 78797189, "equity": 9384000, "total": 333486246, "source": "measured"}, {"co": "Verizon", "people": 1512, "wages": 237832663, "tax": 80582634, "equity": 9072000, "total": 327487297, "source": "measured"}, {"co": "Cruise LLC", "people": 885, "wages": 216845025, "tax": 76224017, "equity": 5310000, "total": 298379042, "source": "measured"}, {"co": "Gate Gourmet, Inc.", "people": 835, "wages": 212782215, "tax": 75537686, "equity": 5010000, "total": 293329901, "source": "measured"}, {"co": "Amazon", "people": 1554, "wages": 194434934, "tax": 59742021, "equity": 9324000, "total": 263500955, "source": "measured"}, {"co": "Sodexo", "people": 1882, "wages": 188106601, "tax": 55544441, "equity": 11292000, "total": 254943042, "source": "measured"}, {"co": "Oracle America, Inc.", "people": 814, "wages": 187456914, "tax": 61706684, "equity": 4884000, "total": 254047598, "source": "measured"}, {"co": "Wells Fargo", "people": 1464, "wages": 161614247, "tax": 48698879, "equity": 8784000, "total": 219097126, "source": "measured"}, {"co": "Southwest Key Programs", "people": 1467, "wages": 159065343, "tax": 43265773, "equity": 8802000, "total": 211133116, "source": "measured"}, {"co": "Sarepta Therapeutics, Inc.", "people": 1007, "wages": 153651921, "tax": 45286740, "equity": 6042000, "total": 204980661, "source": "measured"}, {"co": "UPS", "people": 1243, "wages": 144248702, "tax": 48881937, "equity": 7458000, "total": 200588639, "source": "measured"}, {"co": "Whirlpool Corporation", "people": 1802, "wages": 139220718, "tax": 40652450, "equity": 10812000, "total": 190685168, "source": "measured"}, {"co": "Intel Corporation (SC-12)", "people": 473, "wages": 137681313, "tax": 48876866, "equity": 2838000, "total": 189396179, "source": "measured"}, {"co": "General Motors: Factory ZERO Detroit - Hamtramck Assembly Center", "people": 1140, "wages": 140888040, "tax": 41280196, "equity": 6840000, "total": 189008236, "source": "measured"}, {"co": "Fred Meyer", "people": 982, "wages": 145254267, "tax": 36313567, "equity": 5892000, "total": 187459834, "source": "measured"}, {"co": "Tyson Foods, Inc. (Amarillo B-Shift Operations)", "people": 1761, "wages": 137870451, "tax": 34467613, "equity": 10566000, "total": 182904064, "source": "measured"}, {"co": "Broadway Services LLC", "people": 1047, "wages": 126784371, "tax": 42599549, "equity": 6282000, "total": 175665920, "source": "measured"}], "states": [{"name": "California", "people": 87511, "wages": 13195000026, "tax": 4684225009, "equity": 525066000, "total": 18404291035}, {"name": "Texas", "people": 26475, "wages": 2872630514, "tax": 718157628, "equity": 158850000, "total": 3749638142}, {"name": "Washington", "people": 16355, "wages": 2198572874, "tax": 549643218, "equity": 98130000, "total": 2846346092}, {"name": "Pennsylvania", "people": 15868, "wages": 1769043311, "tax": 497101170, "equity": 95208000, "total": 2361352481}, {"name": "Florida", "people": 14491, "wages": 1603591009, "tax": 400897752, "equity": 86946000, "total": 2091434761}, {"name": "Illinois", "people": 13501, "wages": 1538828940, "tax": 457032195, "equity": 81006000, "total": 2076867135}, {"name": "Georgia", "people": 14478, "wages": 1481623044, "tax": 447450159, "equity": 86868000, "total": 2015941203}, {"name": "Iowa", "people": 15241, "wages": 1318591530, "tax": 385028727, "equity": 91446000, "total": 1795066257}, {"name": "Maryland", "people": 10120, "wages": 1250234631, "tax": 420078836, "equity": 60720000, "total": 1731033467}, {"name": "New Jersey", "people": 8609, "wages": 1255655333, "tax": 423155847, "equity": 51654000, "total": 1730465180}, {"name": "Arizona", "people": 11838, "wages": 1213728297, "tax": 330134097, "equity": 71028000, "total": 1614890394}, {"name": "Massachusetts", "people": 6840, "wages": 1186198802, "tax": 355859641, "equity": 41040000, "total": 1583098443}, {"name": "Ohio", "people": 13277, "wages": 1100099223, "tax": 313528279, "equity": 79662000, "total": 1493289502}, {"name": "Michigan", "people": 8428, "wages": 908896092, "tax": 266306555, "equity": 50568000, "total": 1225770647}, {"name": "Tennessee", "people": 8849, "wages": 776801525, "tax": 194200381, "equity": 53094000, "total": 1024095906}, {"name": "North Carolina", "people": 7571, "wages": 700628198, "tax": 206685318, "equity": 45426000, "total": 952739516}, {"name": "Oregon", "people": 6191, "wages": 653409629, "tax": 227386551, "equity": 37146000, "total": 917942180}, {"name": "Virginia", "people": 5195, "wages": 669476645, "tax": 206198807, "equity": 31170000, "total": 906845452}, {"name": "Indiana", "people": 6381, "wages": 578851520, "tax": 162657277, "equity": 38286000, "total": 779794797}, {"name": "Kentucky", "people": 6676, "wages": 547836086, "tax": 158872465, "equity": 40056000, "total": 746764551}, {"name": "Missouri", "people": 5016, "wages": 517192840, "tax": 154123466, "equity": 30096000, "total": 701412306}, {"name": "Nevada", "people": 3968, "wages": 402655146, "tax": 100663786, "equity": 23808000, "total": 527126932}, {"name": "Wisconsin", "people": 4112, "wages": 371058536, "tax": 112430736, "equity": 24672000, "total": 508161272}, {"name": "South Carolina", "people": 3961, "wages": 338378206, "tax": 106250757, "equity": 23766000, "total": 468394963}, {"name": "Minnesota", "people": 2749, "wages": 314948876, "tax": 109602209, "equity": 16494000, "total": 441045085}], "n_companies": 2696, "n_states": 43}, "2026": {"grand_totals": {"people": 392904, "wages": 50410214661, "tax": 15589642445, "equity": 6195888000, "total": 72195745107, "gdp_share": 133.228}, "measured_pct": 36, "companies": [{"co": "Oracle", "people": 23400, "wages": 3263457600, "tax": 957576281, "equity": 936000000, "total": 5157033881, "source": "estimated"}, {"co": "Meta", "people": 12480, "wages": 2559672960, "tax": 848649725, "equity": 499200000, "total": 3907522685, "source": "measured"}, {"co": "Volkswagen Group", "people": 32501, "wages": 2615892092, "tax": 833864889, "equity": 195006000, "total": 3644762981, "source": "estimated"}, {"co": "Citigroup", "people": 13001, "wages": 2575834556, "tax": 757037684, "equity": 78006000, "total": 3410878241, "source": "estimated"}, {"co": "Amazon", "people": 13292, "wages": 2040322000, "tax": 660724326, "equity": 531680000, "total": 3232726326, "source": "measured"}, {"co": "Nokia", "people": 9099, "wages": 1792824659, "tax": 564100776, "equity": 54594000, "total": 2411519435, "source": "estimated"}, {"co": "HSBC", "people": 13000, "wages": 1757588135, "tax": 564396609, "equity": 78000000, "total": 2399984744, "source": "estimated"}, {"co": "UPS", "people": 25500, "wages": 1394432438, "tax": 411585575, "equity": 153000000, "total": 1959018013, "source": "estimated"}, {"co": "Intel", "people": 9750, "wages": 1176240000, "tax": 389604467, "equity": 390000000, "total": 1955844467, "source": "estimated"}, {"co": "Dell", "people": 7144, "wages": 1055197376, "tax": 280057714, "equity": 285760000, "total": 1621015090, "source": "estimated"}, {"co": "Heineken", "people": 3901, "wages": 987706736, "tax": 318372194, "equity": 156040000, "total": 1462118930, "source": "estimated"}, {"co": "Chevron", "people": 5200, "wages": 956800000, "tax": 242928760, "equity": 208000000, "total": 1407728760, "source": "estimated"}, {"co": "Spirit Airlines", "people": 14001, "wages": 897059261, "tax": 233697712, "equity": 84006000, "total": 1214762973, "source": "measured"}, {"co": "Microsoft", "people": 4811, "wages": 788340082, "tax": 207327706, "equity": 192440000, "total": 1188107788, "source": "estimated"}, {"co": "Standard Chartered", "people": 5071, "wages": 836989813, "tax": 264840749, "equity": 30426000, "total": 1132256562, "source": "estimated"}, {"co": "Nestl\u00e9", "people": 10402, "wages": 802093434, "tax": 248105075, "equity": 62412000, "total": 1112610509, "source": "estimated"}, {"co": "Block", "people": 2599, "wages": 806584730, "tax": 277748181, "equity": 15594000, "total": 1099926911, "source": "estimated"}, {"co": "Kyndryl", "people": 4502, "wages": 675300000, "tax": 197311800, "equity": 180080000, "total": 1052691800, "source": "estimated"}, {"co": "PayPal", "people": 3094, "wages": 755586226, "tax": 254623259, "equity": 18564000, "total": 1028773485, "source": "estimated"}, {"co": "Commerzbank", "people": 4486, "wages": 740482205, "tax": 234303110, "equity": 26916000, "total": 1001701315, "source": "estimated"}, {"co": "Telefonica", "people": 3899, "wages": 643479495, "tax": 203593582, "equity": 23394000, "total": 870467077, "source": "estimated"}, {"co": "Accenture", "people": 3850, "wages": 460059600, "tax": 139908068, "equity": 154000000, "total": 753967668, "source": "estimated"}, {"co": "Amdocs", "people": 1623, "wages": 411037304, "tax": 132498073, "equity": 64920000, "total": 608455377, "source": "estimated"}, {"co": "Cisco", "people": 2801, "wages": 375894200, "tax": 120480063, "equity": 112040000, "total": 608414263, "source": "estimated"}, {"co": "LinkedIn", "people": 569, "wages": 397526917, "tax": 141122056, "equity": 22760000, "total": 561408973, "source": "measured"}], "states": [{"name": "California", "people": 110336, "wages": 18131012987, "tax": 6436509610, "equity": 1994068000, "total": 26561590598}, {"name": "Texas", "people": 59354, "wages": 7753133059, "tax": 1938283265, "equity": 1241110000, "total": 10932526323}, {"name": "Washington", "people": 16816, "wages": 2940476979, "tax": 735119245, "equity": 465954000, "total": 4141550224}, {"name": "Illinois", "people": 24140, "wages": 2870180648, "tax": 852443653, "equity": 269790000, "total": 3992414301}, {"name": "Florida", "people": 28956, "wages": 2839008466, "tax": 709752116, "equity": 338330000, "total": 3887090582}, {"name": "New York", "people": 18405, "wages": 2407700750, "tax": 861956868, "equity": 330648000, "total": 3600305618}, {"name": "Georgia", "people": 19291, "wages": 1618197104, "tax": 488695526, "equity": 192688000, "total": 2299580630}, {"name": "New Jersey", "people": 10065, "wages": 1372757098, "tax": 462619142, "equity": 111968000, "total": 1947344240}, {"name": "Virginia", "people": 10409, "wages": 1098636760, "tax": 338380122, "equity": 122260000, "total": 1559276882}, {"name": "Massachusetts", "people": 6781, "wages": 1090655211, "tax": 327196563, "equity": 75196000, "total": 1493047774}, {"name": "Tennessee", "people": 13095, "wages": 982244892, "tax": 245561223, "equity": 82888000, "total": 1310694114}, {"name": "North Carolina", "people": 6406, "wages": 732315172, "tax": 216032976, "equity": 131222000, "total": 1079570147}, {"name": "Pennsylvania", "people": 6749, "wages": 758865533, "tax": 213241215, "equity": 82892000, "total": 1054998748}, {"name": "Oregon", "people": 5167, "wages": 607614349, "tax": 211449793, "equity": 177882000, "total": 996946142}, {"name": "Arizona", "people": 6591, "wages": 672048525, "tax": 182797199, "equity": 115230000, "total": 970075724}, {"name": "Ohio", "people": 7437, "wages": 626292420, "tax": 178493340, "equity": 46594000, "total": 851379760}, {"name": "Michigan", "people": 6560, "wages": 556334627, "tax": 163006046, "equity": 45378000, "total": 764718673}, {"name": "Missouri", "people": 4641, "wages": 484012522, "tax": 144235732, "equity": 81532000, "total": 709780254}, {"name": "Maryland", "people": 3354, "wages": 416776739, "tax": 140036984, "equity": 41442000, "total": 598255723}, {"name": "Kentucky", "people": 5629, "wages": 393150254, "tax": 114013574, "equity": 33774000, "total": 540937828}, {"name": "Wisconsin", "people": 3195, "wages": 267008604, "tax": 80903607, "equity": 19170000, "total": 367082211}, {"name": "Connecticut", "people": 2735, "wages": 229159712, "tax": 72872788, "equity": 43542000, "total": 345574500}, {"name": "Minnesota", "people": 1683, "wages": 185100328, "tax": 64414914, "equity": 20094000, "total": 269609242}, {"name": "South Carolina", "people": 2322, "wages": 179253459, "tax": 56285586, "equity": 13932000, "total": 249471045}, {"name": "Utah", "people": 1340, "wages": 169931259, "tax": 50299653, "equity": 18410000, "total": 238640912}], "n_companies": 1264, "n_states": 44}}};
+let year = '2026', metric = 'total';
+
+function fmtMoney(x){if(x>=1e9)return '$'+(x/1e9).toFixed(2)+'B';if(x>=1e6)return '$'+(x/1e6).toFixed(1)+'M';if(x>=1e3)return '$'+(x/1e3).toFixed(0)+'K';return '$'+Math.round(x);}
+function fmtNum(x){return Math.round(x).toLocaleString();}
+function fmtMetric(v,m){return m==='people'?fmtNum(v):fmtMoney(v);}
+function Y(){return CHART.years[year];}
+
+function renderKpis(){
+  const t = Y().grand_totals;
+  const items = [['people','People'],['total','Total Impact'],['wages','Wages'],['tax','Tax Lost'],['equity','Equity']];
+  let html = items.map(it => '<div class="kpi"><div class="v">'+fmtMetric(t[it[0]],it[0])+'</div><div class="l">'+it[1]+'</div></div>').join('');
+  html += '<div class="kpi"><div class="v">'+Y().measured_pct+'%</div><div class="l">WARN-measured</div></div>';
+  document.getElementById('kpis').innerHTML = html;
+}
+
+function barChart(el, rows, labelFn, withDot){
+  const max = Math.max.apply(null, rows.map(r => r[metric]).concat([1]));
+  el.innerHTML = rows.map((r,i) => {
+    const w = (r[metric] / max * 100).toFixed(1);
+    const dot = withDot && r.source ? '<span class="src-'+(r.source==='measured'?'m':'e')+'" title="'+(r.source==='measured'?'WARN-measured':'estimated')+'"></span>' : '';
+    return '<div class="bar-row"><div class="bar-label"><span class="rank">'+(i+1)+'</span>'+dot+labelFn(r)+'</div>'+
+      '<div class="bar-track"><div class="bar-fill" style="width:'+w+'%"></div></div>'+
+      '<div class="bar-val">'+fmtMetric(r[metric],metric)+'</div></div>';
+  }).join('');
+}
+
+function renderCompanies(){
+  const rows = Y().companies.slice().sort((a,b)=>b[metric]-a[metric]).slice(0,20);
+  document.getElementById('co-hint').textContent = 'Top 20 of '+Y().n_companies+' companies by '+CHART.metric_labels[metric]+', '+year+'.';
+  barChart(document.getElementById('co-chart'), rows, r=>r.co, true);
+}
+
+function renderStates(){
+  const rows = Y().states.slice().sort((a,b)=>b[metric]-a[metric]).slice(0,15);
+  document.getElementById('st-hint').textContent = 'Top 15 of '+Y().n_states+' states by '+CHART.metric_labels[metric]+', '+year+'.';
+  barChart(document.getElementById('st-chart'), rows, r=>r.name, false);
+}
+
+function renderCompare(){
+  const a = CHART.years['2025'].grand_totals, b = CHART.years['2026'].grand_totals;
+  document.getElementById('cmp-chart').innerHTML = CHART.metrics.map(m => {
+    const va = a[m]||0, vb = b[m]||0, mx = Math.max(va,vb,1);
+    const pct = va>0 ? Math.round((vb-va)/va*100) : null;
+    const fmt = v => fmtMetric(v,m);
+    const sign = pct===null ? '\u2014' : (pct>=0?'+':'')+pct+'%';
+    return '<div class="cmp-row"><div class="cmp-lbl">'+CHART.metric_labels[m]+'</div><div>'+
+      '<div class="cmp-line"><span class="yr">2025</span><div class="bar-track"><div class="bar-fill g" style="width:'+(va/mx*100).toFixed(1)+'%"></div></div><span class="cmp-v">'+fmt(va)+'</span></div>'+
+      '<div class="cmp-line"><span class="yr">2026</span><div class="bar-track"><div class="bar-fill" style="width:'+(vb/mx*100).toFixed(1)+'%"></div></div><span class="cmp-v">'+fmt(vb)+'</span></div>'+
+      '</div><div class="cmp-delta '+(pct>=0?'up':'down')+'">'+sign+'</div></div>';
+  }).join('');
+}
+
+function renderAll(){ renderKpis(); renderCompanies(); renderStates(); renderCompare(); }
+
+document.querySelectorAll('button.year').forEach(b => b.onclick = () => {
+  year = b.dataset.year;
+  document.querySelectorAll('button.year').forEach(x => x.classList.toggle('active', x===b));
+  renderAll();
+});
+document.querySelectorAll('button.metric').forEach(b => b.onclick = () => {
+  metric = b.dataset.metric;
+  document.querySelectorAll('button.metric').forEach(x => x.classList.toggle('active', x===b));
+  renderAll();
+});
+renderAll();
+</script>
+</body></html>

@@ -618,6 +618,57 @@ payload_2025 = build_year_payload(agg_2025, state_agg_2025, off_2025)
 payload_2026 = build_year_payload(agg_2026, state_agg_2026, off_2026)
 
 # ============================================================================
+# 6b. Chart-page aggregates — national per-company totals + state ranking
+# ============================================================================
+
+chart_metrics = ["people", "wages", "tax", "equity", "total"]
+
+def aggregate_companies(agg):
+    """Sum each company across every county it touches -> national per-company totals."""
+    comp = {}
+    for d in agg.values():
+        for c in d["companies"]:
+            e = comp.setdefault(c["co"], {"co": c["co"], "people": 0, "wages": 0, "tax": 0,
+                                          "equity": 0, "total": 0, "measured_people": 0})
+            for k in chart_metrics:
+                e[k] += c[k]
+            if c["source"] == "measured":
+                e["measured_people"] += c["people"]
+    out = []
+    for v in comp.values():
+        row = {"co": v["co"]}
+        for k in chart_metrics:
+            row[k] = round(v[k])
+        row["source"] = "measured" if v["measured_people"] >= 0.5 * max(v["people"], 1) else "estimated"
+        out.append(row)
+    out.sort(key=lambda x: -x["total"])
+    return out
+
+def top_states(payload):
+    rows = [{"name": v["name"], **{k: v["totals"][k] for k in chart_metrics}} for v in payload["panel_state"].values()]
+    rows.sort(key=lambda x: -x["total"])
+    return rows
+
+def year_chart_block(agg, payload):
+    return {
+        "grand_totals": payload["grand_totals"],
+        "measured_pct": payload["measured_pct"],
+        "companies": aggregate_companies(agg)[:25],
+        "states": top_states(payload)[:25],
+        "n_companies": len({c["co"] for d in agg.values() for c in d["companies"]}),
+        "n_states": len(payload["panel_state"]),
+    }
+
+CHART_DATA = {
+    "metrics": chart_metrics,
+    "metric_labels": {m: metric_labels[m] for m in chart_metrics},
+    "years": {
+        "2025": year_chart_block(agg_2025, payload_2025),
+        "2026": year_chart_block(agg_2026, payload_2026),
+    },
+}
+
+# ============================================================================
 # 7. Plotly figure + HTML
 # ============================================================================
 
@@ -761,6 +812,8 @@ main{{flex:1;display:flex;min-height:0}}
 <body>
 <header>
   <div class="attrib">
+    <a href="charts.html" title="Charts &amp; rankings"><svg viewBox="0 0 24 24"><path d="M3 13h4v8H3v-8zm7-9h4v17h-4V4zm7 5h4v12h-4V9z"/></svg>Charts</a>
+    <span class="sep">·</span>
     <a href="https://deflation.ai" target="_blank" rel="noopener" title="deflation.ai">deflation.ai</a>
     <span class="sep">·</span>
     <a href="https://x.com/TrippelHarry" target="_blank" rel="noopener" title="@TrippelHarry on X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>@TrippelHarry</a>
@@ -1009,6 +1062,177 @@ window.addEventListener('resize', () => Plotly.Plots.resize(gd));
 with open("index.html", "w") as f:
     f.write(html)
 
+# ============================================================================
+# 9. Charts subpage (charts.html) — company/state rankings + year comparison
+# ============================================================================
+
+charts_template = """<!DOCTYPE html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>US Layoffs — Charts (2025 &amp; 2026)</title>
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#fafafa;color:#222}
+header{background:white;border-bottom:1px solid #e0e0e0;padding:10px 20px 8px;position:relative}
+.attrib{position:absolute;top:10px;right:20px;display:flex;gap:10px;align-items:center;font-size:11px;color:#999}
+.attrib a{color:#888;text-decoration:none;display:inline-flex;align-items:center;gap:4px;padding:2px 4px;border-radius:3px;transition:all 0.15s}
+.attrib a:hover{color:#1a4480;background:#f3f6fb}
+.attrib svg{width:13px;height:13px;fill:currentColor}
+.attrib .sep{color:#ddd}
+h1{margin:0 0 4px;font-size:17px;font-weight:600;color:#222}
+.subtitle{font-size:11px;color:#666;margin-bottom:8px}
+.controls{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+button.metric,button.year{background:#f0f0f0;border:1px solid #d8d8d8;color:#333;padding:5px 12px;font-size:12px;border-radius:4px;cursor:pointer}
+button.metric:hover,button.year:hover{background:#e8e8e8}
+button.metric.active{background:#b00;color:white;border-color:#b00}
+button.year{background:#1a4480;color:white;border-color:#1a4480}
+button.year:hover{background:#0d2c5a}
+button.year.active{background:#0d2c5a;border-color:#0d2c5a}
+.divider{width:1px;height:20px;background:#ccc;margin:0 8px}
+.wrap{max-width:1000px;margin:0 auto;padding:18px 20px 60px}
+.kpis{display:flex;gap:12px;flex-wrap:wrap;margin:6px 0}
+.kpi{background:white;border:1px solid #e6e6e6;border-radius:8px;padding:11px 15px;flex:1;min-width:120px}
+.kpi .v{font-size:21px;font-weight:700;color:#b00;font-variant-numeric:tabular-nums}
+.kpi .l{font-size:11px;color:#777;margin-top:2px}
+section{background:white;border:1px solid #e8e8e8;border-radius:10px;padding:16px 18px;margin-top:18px}
+section h2{margin:0 0 2px;font-size:15px;color:#222}
+.hint{font-size:11px;color:#888;margin-bottom:12px}
+.legend{float:right;font-size:11px;color:#888;font-weight:400}
+.dot{display:inline-block;width:7px;height:7px;border-radius:50%;margin:0 4px 0 10px;vertical-align:middle}
+.dot.m{background:#28a745}.dot.e{background:#bbb}
+.bar-row{display:grid;grid-template-columns:215px 1fr 108px;align-items:center;gap:10px;margin-bottom:5px;font-size:12px}
+.bar-label{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#333}
+.bar-label .rank{display:inline-block;width:20px;color:#bbb;text-align:right;margin-right:7px;font-variant-numeric:tabular-nums}
+.src-m,.src-e{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:6px;vertical-align:middle;flex-shrink:0}
+.src-m{background:#28a745}.src-e{background:#bbb}
+.bar-track{background:#f1f1f1;border-radius:4px;height:17px;overflow:hidden}
+.bar-fill{height:100%;border-radius:4px;background:linear-gradient(90deg,#ffb24d,#b00)}
+.bar-fill.g{background:#cfcfcf}
+.bar-val{text-align:right;font-variant-numeric:tabular-nums;color:#444}
+.cmp-row{display:grid;grid-template-columns:110px 1fr 64px;align-items:center;gap:14px;margin-bottom:11px;font-size:12px}
+.cmp-lbl{color:#333;font-weight:600}
+.cmp-line{display:grid;grid-template-columns:34px 1fr 92px;align-items:center;gap:8px;margin:2px 0}
+.cmp-line .yr{font-size:10px;color:#999}
+.cmp-v{text-align:right;font-variant-numeric:tabular-nums;color:#444}
+.cmp-delta{text-align:right;font-weight:600;font-variant-numeric:tabular-nums}
+.cmp-delta.up{color:#b00}.cmp-delta.down{color:#28a745}
+@media(max-width:640px){.bar-row{grid-template-columns:128px 1fr 76px}}
+</style></head>
+<body>
+<header>
+  <div class="attrib">
+    <a href="index.html" title="Back to the map"><svg viewBox="0 0 24 24"><path d="M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5zM15 19l-6-2.11V5l6 2.11V19z"/></svg>Map</a>
+    <span class="sep">&middot;</span>
+    <a href="https://deflation.ai" target="_blank" rel="noopener" title="deflation.ai">deflation.ai</a>
+    <span class="sep">&middot;</span>
+    <a href="https://x.com/TrippelHarry" target="_blank" rel="noopener" title="@TrippelHarry on X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>@TrippelHarry</a>
+    <span class="sep">&middot;</span>
+    <a href="https://github.com/HarryTgerman/us-layoffs-heatmap" target="_blank" rel="noopener" title="source on GitHub"><svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>repo</a>
+  </div>
+  <h1>US Layoffs &mdash; Charts</h1>
+  <div class="subtitle">Company &amp; state rankings &middot; <a href="index.html" style="color:#1a4480;text-decoration:none">open the interactive map &rarr;</a></div>
+  <div class="controls">
+    <button class="year active" data-year="2026">2026</button>
+    <button class="year" data-year="2025">2025</button>
+    <span class="divider"></span>
+    <button class="metric" data-metric="people">People</button>
+    <button class="metric" data-metric="wages">Wages</button>
+    <button class="metric" data-metric="tax">Tax</button>
+    <button class="metric" data-metric="equity">Equity</button>
+    <button class="metric active" data-metric="total">Total</button>
+  </div>
+</header>
+<div class="wrap">
+  <div class="kpis" id="kpis"></div>
+  <section>
+    <h2>Top companies <span class="legend"><span class="dot m"></span>WARN-measured<span class="dot e"></span>estimated</span></h2>
+    <div class="hint" id="co-hint"></div>
+    <div id="co-chart"></div>
+  </section>
+  <section>
+    <h2>Top states</h2>
+    <div class="hint" id="st-hint"></div>
+    <div id="st-chart"></div>
+  </section>
+  <section>
+    <h2>2025 vs 2026</h2>
+    <div class="hint">National totals for both years. &Delta; is 2026 vs 2025 &mdash; red = higher in 2026, green = lower.</div>
+    <div id="cmp-chart"></div>
+  </section>
+</div>
+<script>
+const CHART = __CHART_DATA__;
+let year = '2026', metric = 'total';
+
+function fmtMoney(x){if(x>=1e9)return '$'+(x/1e9).toFixed(2)+'B';if(x>=1e6)return '$'+(x/1e6).toFixed(1)+'M';if(x>=1e3)return '$'+(x/1e3).toFixed(0)+'K';return '$'+Math.round(x);}
+function fmtNum(x){return Math.round(x).toLocaleString();}
+function fmtMetric(v,m){return m==='people'?fmtNum(v):fmtMoney(v);}
+function Y(){return CHART.years[year];}
+
+function renderKpis(){
+  const t = Y().grand_totals;
+  const items = [['people','People'],['total','Total Impact'],['wages','Wages'],['tax','Tax Lost'],['equity','Equity']];
+  let html = items.map(it => '<div class="kpi"><div class="v">'+fmtMetric(t[it[0]],it[0])+'</div><div class="l">'+it[1]+'</div></div>').join('');
+  html += '<div class="kpi"><div class="v">'+Y().measured_pct+'%</div><div class="l">WARN-measured</div></div>';
+  document.getElementById('kpis').innerHTML = html;
+}
+
+function barChart(el, rows, labelFn, withDot){
+  const max = Math.max.apply(null, rows.map(r => r[metric]).concat([1]));
+  el.innerHTML = rows.map((r,i) => {
+    const w = (r[metric] / max * 100).toFixed(1);
+    const dot = withDot && r.source ? '<span class="src-'+(r.source==='measured'?'m':'e')+'" title="'+(r.source==='measured'?'WARN-measured':'estimated')+'"></span>' : '';
+    return '<div class="bar-row"><div class="bar-label"><span class="rank">'+(i+1)+'</span>'+dot+labelFn(r)+'</div>'+
+      '<div class="bar-track"><div class="bar-fill" style="width:'+w+'%"></div></div>'+
+      '<div class="bar-val">'+fmtMetric(r[metric],metric)+'</div></div>';
+  }).join('');
+}
+
+function renderCompanies(){
+  const rows = Y().companies.slice().sort((a,b)=>b[metric]-a[metric]).slice(0,20);
+  document.getElementById('co-hint').textContent = 'Top 20 of '+Y().n_companies+' companies by '+CHART.metric_labels[metric]+', '+year+'.';
+  barChart(document.getElementById('co-chart'), rows, r=>r.co, true);
+}
+
+function renderStates(){
+  const rows = Y().states.slice().sort((a,b)=>b[metric]-a[metric]).slice(0,15);
+  document.getElementById('st-hint').textContent = 'Top 15 of '+Y().n_states+' states by '+CHART.metric_labels[metric]+', '+year+'.';
+  barChart(document.getElementById('st-chart'), rows, r=>r.name, false);
+}
+
+function renderCompare(){
+  const a = CHART.years['2025'].grand_totals, b = CHART.years['2026'].grand_totals;
+  document.getElementById('cmp-chart').innerHTML = CHART.metrics.map(m => {
+    const va = a[m]||0, vb = b[m]||0, mx = Math.max(va,vb,1);
+    const pct = va>0 ? Math.round((vb-va)/va*100) : null;
+    const fmt = v => fmtMetric(v,m);
+    const sign = pct===null ? '\\u2014' : (pct>=0?'+':'')+pct+'%';
+    return '<div class="cmp-row"><div class="cmp-lbl">'+CHART.metric_labels[m]+'</div><div>'+
+      '<div class="cmp-line"><span class="yr">2025</span><div class="bar-track"><div class="bar-fill g" style="width:'+(va/mx*100).toFixed(1)+'%"></div></div><span class="cmp-v">'+fmt(va)+'</span></div>'+
+      '<div class="cmp-line"><span class="yr">2026</span><div class="bar-track"><div class="bar-fill" style="width:'+(vb/mx*100).toFixed(1)+'%"></div></div><span class="cmp-v">'+fmt(vb)+'</span></div>'+
+      '</div><div class="cmp-delta '+(pct>=0?'up':'down')+'">'+sign+'</div></div>';
+  }).join('');
+}
+
+function renderAll(){ renderKpis(); renderCompanies(); renderStates(); renderCompare(); }
+
+document.querySelectorAll('button.year').forEach(b => b.onclick = () => {
+  year = b.dataset.year;
+  document.querySelectorAll('button.year').forEach(x => x.classList.toggle('active', x===b));
+  renderAll();
+});
+document.querySelectorAll('button.metric').forEach(b => b.onclick = () => {
+  metric = b.dataset.metric;
+  document.querySelectorAll('button.metric').forEach(x => x.classList.toggle('active', x===b));
+  renderAll();
+});
+renderAll();
+</script>
+</body></html>"""
+charts_html = charts_template.replace("__CHART_DATA__", json.dumps(CHART_DATA))
+with open("charts.html", "w") as f:
+    f.write(charts_html)
+
 print(f"  Done. index.html: {len(html)/1024/1024:.1f} MB")
+print(f"  Done. charts.html: {len(charts_html)/1024:.0f} KB")
 print(f"  2026: {len(agg_2026)} counties, totals {payload_2026['grand_totals']['people']:,} people, {payload_2026['measured_pct']}% measured")
 print(f"  2025: {len(agg_2025)} counties, totals {payload_2025['grand_totals']['people']:,} people, {payload_2025['measured_pct']}% measured")

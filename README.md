@@ -13,6 +13,7 @@ Interactive US county-level heatmap of 2025 and 2026 layoffs, with measured and 
 - Click a county (or state) to open a side panel listing every affected company with people, wages, tax lost, equity lost, total impact, and number of sites.
 - Toggle between 2025 (WARN-measured) and 2026 (WARN + estimated) views.
 - Methodology disclaimer collapses/expands at the top.
+- **Charts page** ([`charts.html`](charts.html)): ranks the top companies and states by any metric (people / wages / tax / equity / total) and compares 2025 vs 2026. Linked from the map header.
 
 ## Metrics
 
@@ -47,7 +48,7 @@ pip install -r requirements.txt
 # 2. Refresh data (optional — sources change over time)
 ./fetch_data.sh
 
-# 3. Build index.html
+# 3. Build index.html + charts.html
 python build.py
 ```
 
@@ -60,6 +61,7 @@ build.py                 Pipeline that aggregates data and renders index.html
 parse_h1b.py             Parses cached H1B HTML pages into h1b_overrides.json
 fetch_data.sh            Re-downloads source datasets
 index.html               Final interactive map (this is what's served)
+charts.html              Company/state rankings + 2025-vs-2026 charts (generated)
 
 # Inputs (small, committed)
 layoffs-2026.csv         Company-level 2026 layoffs
